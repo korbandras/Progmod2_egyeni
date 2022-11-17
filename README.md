@@ -28,7 +28,7 @@ Mindez egy MySQL adatbázishoz csatlakozik, amit külön ehhez hoztam létre
   @PostMapping("/save")
     public String saveCars(@RequestBody car Car){
         ****
-        return "SUCCESS";
+        return String.format("Save successful");
     }
   ```
   
@@ -39,7 +39,7 @@ Mindez egy MySQL adatbázishoz csatlakozik, amit külön ehhez hoztam létre
   @PutMapping("/update/{id}")
     public String updateCar(@PathVariable long id, @RequestBody car Car){
         ****
-        return "SUCCESS";
+        return String.format("Successfully updated car with id %d", id);
     }
   ```
   
@@ -50,7 +50,7 @@ Mindez egy MySQL adatbázishoz csatlakozik, amit külön ehhez hoztam létre
   @DeleteMapping("/delete/{id}")
     public String deleteCar(@PathVariable long id){
         ****
-        return "SUCCESS";
+        return String.format("Successfully deleted car with id: %d", id);
     }
   ```
   
