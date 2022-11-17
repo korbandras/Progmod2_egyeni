@@ -23,23 +23,23 @@ public class controller {
     @PostMapping("/save")
     public String saveCars(@RequestBody car Car){
         carRepo.save(Car);
-        return "SUCCESS";
+        return String.format("Save successful");
     }
 
     @PutMapping("/update/{id}")
-    public String updateCars(@PathVariable long id,@RequestBody car Car){
+    public String updateCar(@PathVariable long id, @RequestBody car Car){
         car updateCar = carRepo.findById(id).get();
         updateCar.setCarType(Car.getCarType());
         updateCar.setLicensePlate(Car.getLicensePlate());
         updateCar.setVehicleIdentificationNumber(Car.getVehicleIdentificationNumber());
         carRepo.save(updateCar);
-        return "SUCCESS";
+        return String.format("Successfully updated car with id %d", id);
     }
 
     @DeleteMapping("/delete/{id}")
     public String deleteCar(@PathVariable long id){
         car delete = carRepo.findById(id).get();
         carRepo.delete(delete);
-        return "SUCCESS";
+        return String.format("Successfully deleted car with id: %d", id);
     }
 }
